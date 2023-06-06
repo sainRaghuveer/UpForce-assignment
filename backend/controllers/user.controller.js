@@ -33,3 +33,31 @@ exports.getUser = async (req, res) => {
     }
 };
 
+
+
+/*----------------------- User update route -------------------------*/
+exports.updateUser = async (req, res) => {
+    const Id = req.params.id;
+    try {
+        const user = await userModel.findByIdAndUpdate(Id, req.body);
+        res.status(200).send({ "msg": "user data updated successfully", "user": user });
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({ "msg": "Something went wrong", "error": error.message });
+    }
+};
+
+
+
+/*----------------------- User delete route -------------------------*/
+exports.deleteUser = async (req, res) => {
+    const Id = req.params.id;
+    try {
+        const user = await userModel.findByIdAndDelete(Id);
+        res.status(200).send({ "msg": "user deleted successfully", "user": user });
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({ "msg": "Something went wrong", "error": error.message });
+    }
+};
+
