@@ -38,7 +38,7 @@ exports.exportCSV = async (req, res) => {
                 // Sending CSV data as a response to the frontend
                 res.send(csvData);
 
-                //After sending the CSV data file will get deleted
+                // After sending the CSV data file will get deleted
                 fs.unlinkSync(filePath)
             })
             .catch((error) => {
