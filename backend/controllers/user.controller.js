@@ -35,6 +35,20 @@ exports.getUser = async (req, res) => {
 
 
 
+/*-------------- Single user get route --------- --------------*/
+exports.getSingleUser = async (req, res) => {
+    const Id = req.params.id;
+    try {
+        const data = await userModel.findOne({_id:Id});
+        res.status(200).send({ "msg": "Single user data", "data": data });
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({ "msg": "Something went wrong", "error": error.message });
+    }
+};
+
+
+
 /*----------------------- User update route -------------------------*/
 exports.updateUser = async (req, res) => {
     const Id = req.params.id;

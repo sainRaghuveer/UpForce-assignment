@@ -13,11 +13,15 @@ userRouter.post("/user", controller.postUser);
 userRouter.get("/user/page/:page", controller.getUser);
 
 
-/*--------------------- user update Route ----------------------*/
+/*-------------- Single user get route ---------------------------*/
+userRouter.get("/user/:id", controller.getSingleUser);
+
+
+/*--------------------- user update Route -------------------------*/
 userRouter.patch("/user/:id", controller.updateUser);
 
 
-/*--------------------- user delete Route ----------------------*/
+/*--------------------- user delete Route ------------------------*/
 userRouter.delete("/user/:id", controller.deleteUser);
 
 module.exports={
