@@ -2,6 +2,7 @@ const express = require('express');
 const cors= require('cors');
 const { connection } = require('./configs/db');
 const { userRouter } = require('./routes/user.route');
+const { exportCSVRouter } = require('./routes/exportCSV.route');
 require('dotenv').config();
 
 
@@ -25,6 +26,10 @@ app.get("/", (req, res)=>{
 
 //user Routes
 app.use("/api", userRouter);
+
+
+//csv download Routes
+app.use("/api", exportCSVRouter);
 
 
 //Server configuration
