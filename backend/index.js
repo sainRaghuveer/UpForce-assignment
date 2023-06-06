@@ -1,6 +1,7 @@
 const express = require('express');
 const cors= require('cors');
 const { connection } = require('./configs/db');
+const { userRouter } = require('./routes/user.route');
 require('dotenv').config();
 
 
@@ -20,6 +21,10 @@ app.use(cors());
 app.get("/", (req, res)=>{
     res.send("Welcome to the UpForce backend ... 🪄");
 });
+
+
+//user Routes
+app.use("/api", userRouter);
 
 
 //Server configuration
