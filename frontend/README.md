@@ -1,4 +1,4 @@
-# UpForce Frontend System
+># UpForce Frontend System
 
 <br>
 
@@ -135,10 +135,14 @@ Note : `You can use any one of them.`
 
 ## Frontend Deployed Link
 
-<a href="https://upforce-assignment-by-raghuveersain.vercel.app/"><strong><h2>Vercel</h2></strong></a>
+<br>
+
+<a href="https://upforce-assignment-by-raghuveersain.vercel.app/"><strong>Vercel</strong></a>
 
 <br>
 
-# Presentation Video Link
+## Presentation Video Link
+
+<br>
 
 <a href="">UpForce Frontend Presentation</a>

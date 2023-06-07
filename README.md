@@ -119,12 +119,6 @@ Note:
 
 <br>
 
-## Backend Deployed Link 
-
-<a href="https://upforce-backend.onrender.com"><strong><h2>Render</h2></strong></a>
-
-<br>
-
 ## Endpoints
 
 <table>
@@ -178,7 +172,18 @@ Note:
 
 <br>
 
-# Presentation Video Link
+
+## Backend Deployed Link 
+
+<br>
+
+<a href="https://upforce-backend.onrender.com"><strong>Render</strong></a>
+
+<br>
+
+## Presentation Video Link
+
+<br>
 
 <a href="">UpForce Backend Presentation</a>
 
@@ -328,11 +333,15 @@ Note : `You can use any one of them.`
 
 ## Frontend Deployed Link
 
-<a href="https://upforce-assignment-by-raghuveersain.vercel.app/"><strong><h2>Vercel</h2></strong></a>
+<br>
+
+<a href="https://upforce-assignment-by-raghuveersain.vercel.app/"><strong>Vercel</strong></a>
 
 <br>
 
-# Presentation Video Link
+## Presentation Video Link
+
+<br>
 
 <a href="">UpForce Frontend Presentation</a>
 
