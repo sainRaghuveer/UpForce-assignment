@@ -20,7 +20,7 @@ app.use(cors());
 
 //default route
 app.get("/", (req, res) => {
-    res.send("Welcome to the UpForce backend ... 🪄");
+    res.send(`<h1 style="text-align:center; color:blue;">Welcome to the UpForce backend ... 🪄</h1>`);
 });
 
 
