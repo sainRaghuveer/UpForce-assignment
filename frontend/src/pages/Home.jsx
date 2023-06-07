@@ -59,7 +59,7 @@ const Home = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       getData();
-    }, 2000);
+    }, 0);
 
     return () => {
       clearTimeout(timer);
@@ -138,9 +138,14 @@ const Home = () => {
               </Tr>
             </Thead>
             <Tbody>
-              {data.length > 0 && data.map((user) => (
-                <UserCard key={user._id} data={user} getData={getData} />
-              ))}
+              {loading ?<div id='loader'> <Spinner
+                thickness='4px'
+                speed='0.65s'
+                emptyColor='gray.200'
+                color='blue.500'
+                size='xl' /> <h1>Please Wait while data loading...</h1></div> : data.length > 0 && data.map((user) => (
+                  <UserCard key={user._id} data={user} getData={getData} />
+                ))}
 
             </Tbody>
           </Table>

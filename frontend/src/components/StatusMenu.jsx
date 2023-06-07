@@ -22,6 +22,7 @@ const StatusMenu = ({ status, id, getData }) => {
             setLoading(true);
             axios.patch(`https://upforce-backend.onrender.com/api/user/${id}`, obj)
                 .then((res) => {
+                    getData();
                     setLoading(false);
                     toastMsg({
                         title: `Status updated successfully`,
@@ -37,10 +38,8 @@ const StatusMenu = ({ status, id, getData }) => {
                     console.log(error);
                 });
 
-            getData();
         }
-        getData();
-    }, [newStatus, id]);
+    }, [newStatus]);
 
     const handleActive = (status) => {
         setNewStatus(status);
