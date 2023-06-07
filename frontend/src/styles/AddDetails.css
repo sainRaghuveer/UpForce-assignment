@@ -13,12 +13,10 @@
 
 #child1{
     width: 50%;
-    border: 1px solid green;
 }
 
 .child2{
     width: 48%;
-    /* border: 1px solid green; */
     padding: 20px;
 }
 
