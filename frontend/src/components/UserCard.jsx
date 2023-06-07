@@ -17,7 +17,7 @@ const UserCard = ({data, getData}) => {
           <Td>{el.gender=="male" ? "M" : "F"}</Td>
           <Td>{<StatusMenu status={el.status} id={el._id} getData={getData}/>}</Td>
           <Td><Image src={el.profile} width={"50px"} height={"50px"} borderRadius={"25px"}></Image></Td>
-          <Td>{<ActionMenu/>}</Td>
+          <Td>{<ActionMenu id={el._id} getData={getData}/>}</Td>
         </Tr>
       ))}
       </>
