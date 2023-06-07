@@ -101,7 +101,7 @@ const Home = () => {
       <div className='searchContainer'>
         <div>
           <Input type="search" placeholder='Search here...' value={query} onChange={(e) => setQuery(e.target.value)}></Input>
-          <Button onClick={handleQuery}>Search</Button>
+          <Button id='sbtn' onClick={handleQuery}>Search</Button>
         </div>
         <div>
           <Button onClick={() => navigate("/register")}><AiOutlinePlus /> Add User</Button>
