@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import {
     Menu,
     MenuButton,
@@ -19,10 +19,10 @@ import UserUpdateModal from './UserUpdateModal';
 import UseToast from '../customHook/UseToast';
 
 const ActionMenu = ({ id, getData, data }) => {
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     const toastMsg = UseToast();
 
-    const handleDelete = () => {
+    const handleDelete = useCallback(() => {
         axios.delete(`https://upforce-backend.onrender.com/api/user/${id}`)
             .then((res) => {
                 toastMsg({
@@ -37,9 +37,9 @@ const ActionMenu = ({ id, getData, data }) => {
                     status: "error"
                 });
             });
-    };
+    }, []);
 
-    const handleView=()=>{
+    const handleView = () => {
         navigate(`/user/${id}`);
     }
     return (
@@ -50,7 +50,7 @@ const ActionMenu = ({ id, getData, data }) => {
                 </MenuButton>
                 <MenuList>
                     <MenuItem onClick={handleView}>{<BsFillEyeFill />} {" "}View</MenuItem>
-                    <MenuItem >{<UserUpdateModal id={id} getData={getData} data={data}/>}</MenuItem>
+                    <MenuItem >{<UserUpdateModal id={id} getData={getData} data={data} />}</MenuItem>
                     <MenuItem onClick={handleDelete}>{<DeleteIcon />} {" "}Delete</MenuItem>
                 </MenuList>
             </Menu>

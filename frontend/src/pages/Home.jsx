@@ -33,12 +33,13 @@ const Home = () => {
   const toastMsg = UseToast();
 
 
-  const getData = async () => {
+  const getData = useCallback(async () => {
     try {
       setLoading(true);
       const response = await fetch(`https://upforce-backend.onrender.com/api/user/page/${page}?q=${query}`);
       const res = await response.json();
       if (response.ok) {
+        setData([]);
         setData(res.data);
         setTotalPage(res.Pages);
         setLoading(false);
@@ -53,12 +54,18 @@ const Home = () => {
         status: "error"
       });
     }
-  };
-  
-  useEffect(() => {
-    getData();
   }, [page]);
-  
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      getData();
+    }, 2000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [page]);
+
 
   const handleQuery = () => {
     getData();
@@ -105,14 +112,14 @@ const Home = () => {
         </div>
         <div>
           <Button onClick={() => navigate("/register")}><AiOutlinePlus /> Add User</Button>
-          {csvLoading?<Button
-          isLoading
-          loadingText='Wait...'
-          colorScheme='blue'
-          variant='outline'
-        >
-          Submit
-        </Button>:<Button onClick={downloadCSV}>{"Export to Csv"}</Button>}
+          {csvLoading ? <Button
+            isLoading
+            loadingText='Wait...'
+            colorScheme='blue'
+            variant='outline'
+          >
+            Submit
+          </Button> : <Button onClick={downloadCSV}>{"Export to Csv"}</Button>}
         </div>
       </div>
       <div className='tableContainer'>
@@ -131,8 +138,8 @@ const Home = () => {
               </Tr>
             </Thead>
             <Tbody>
-              {data.length>0 && data.map((user) => (
-                <UserCard key={user._id} data={user} getData={getData} loading={loading} />
+              {data.length > 0 && data.map((user) => (
+                <UserCard key={user._id} data={user} getData={getData} />
               ))}
 
             </Tbody>
@@ -141,8 +148,8 @@ const Home = () => {
       </div>
       <div>
         <Button onClick={() => setPage(prev => prev - 1)} isDisabled={page <= 1}>{<ArrowLeftIcon />}</Button>
-        <Button>{loading?<Spinner/>:page}</Button>
-        <Button onClick={() => setPage(prev => prev + 1)} isDisabled={page==totalPage}>{<ArrowRightIcon />}</Button>
+        <Button>{loading ? <Spinner /> : page}</Button>
+        <Button onClick={() => setPage(prev => prev + 1)} isDisabled={page == totalPage}>{<ArrowRightIcon />}</Button>
       </div>
     </div>
   )
