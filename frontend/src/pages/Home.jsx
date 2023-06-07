@@ -24,7 +24,7 @@ import { Spinner } from '@chakra-ui/react'
 
 const Home = () => {
   const [data, setData] = useState([]);
-  console.log('data', data)
+  // console.log('data', data)
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
@@ -33,7 +33,7 @@ const Home = () => {
   const toastMsg = UseToast();
 
 
-  const getData = useCallback(async () => {
+  const getData = async () => {
     try {
       setLoading(true);
       const response = await fetch(`https://agile-pear-cape-buffalo.cyclic.app/api/user/page/${page}?q=${query}`);
@@ -54,11 +54,11 @@ const Home = () => {
         status: "error"
       });
     }
-  }, [page, query]);
+  };
   
   useEffect(() => {
     getData();
-  }, [getData]);
+  }, [query, page]);
   
 
   const handleQuery = () => {
