@@ -16,13 +16,13 @@ import {
     console.log(data)
     return (
         <>
-      <div py={6}>
+      <Box py={6}>
         <Stack
           borderWidth="1px"
           borderRadius="lg"
           w={{ sm: '100%', md: '100%', xl:"80%", "2xl":"80%" }}
           margin={"auto"}
-          height={{ sm: '750px', md: '25rem', xl:"30rem" }}
+          height={{ sm: '750px',lg:"750px", md: '25rem', xl:"30rem" }}
           direction={{ base: 'column', md: 'row' }}
           bg={useColorModeValue('white', 'gray.900')}
           boxShadow={'2xl'}
@@ -68,7 +68,7 @@ import {
             </Text>
           </Stack>
         </Stack>
-      </div>
+      </Box>
       <div>
             <Text>Created At:- {data.createdAt}</Text>
             <Text>Last Updated At:- {data.updatedAt}</Text>
