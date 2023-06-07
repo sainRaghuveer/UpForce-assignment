@@ -1,0 +1,43 @@
+.parentContainer {
+    padding: 15px;
+}
+
+.searchContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchContainer>div:nth-child(1) {
+    width: 30%;
+    /* background-color: red; */
+    /* border: 1px solid black; */
+}
+
+.searchContainer>div:nth-child(1)>Input {
+    width: 80%;
+}
+
+.searchContainer>div:nth-child(1)>Button {
+    margin-bottom: 5px;
+}
+
+.searchContainer>div:nth-child(2) {
+    width: 20%;
+    /* border: 1px solid gray; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.tableContainer{
+    width: 90%;
+    margin: auto;
+    margin-top:50px;
+    color: black;
+    /* border: 1px solid red; */
+}
+
+Th{
+    border: 1px solid red;
+}

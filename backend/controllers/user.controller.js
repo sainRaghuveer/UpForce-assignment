@@ -24,8 +24,13 @@ exports.postUser = async (req, res) => {
 /*-------------- All user get route with pagination --------------*/
 exports.getUser = async (req, res) => {
     const page = req.params.page;
+    const searchTerm = req.query.q || "" 
     try {
-        const data = await userModel.find().skip((page-1)*4).limit(4);
+        const data = await userModel.find({$or: [
+            { firstName: { $regex: searchTerm, $options: "i" } },
+            { lastName: { $regex: searchTerm, $options: "i" } },
+            { email: { $regex: searchTerm, $options: "i" } }
+        ]}).skip((page - 1) * 5).limit(5);
         res.status(200).send({ "msg": "user data", "data": data });
     } catch (error) {
         console.log(error.message);
@@ -39,7 +44,7 @@ exports.getUser = async (req, res) => {
 exports.getSingleUser = async (req, res) => {
     const Id = req.params.id;
     try {
-        const data = await userModel.findOne({_id:Id});
+        const data = await userModel.findOne({ _id: Id });
         res.status(200).send({ "msg": "Single user data", "data": data });
     } catch (error) {
         console.log(error.message);
