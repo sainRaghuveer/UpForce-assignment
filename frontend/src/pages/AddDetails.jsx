@@ -27,6 +27,7 @@ const AddDetails = () => {
   const [gender, setGender] = useState("");
   const [status, setStatus] = useState("");
   const [location, setLocation] = useState("");
+  const [loading, setLoading] = useState(false);
   const imageRef = useRef();
   const toastMsg = UseToast();
 
@@ -56,20 +57,24 @@ const AddDetails = () => {
       profile: url,
     };
 
-
-    axios.post(`https://agile-pear-cape-buffalo.cyclic.app/api/user`, obj).then((res) => {
-      console.log(res);
-      toastMsg({
-        title: "Data updated successfully",
-        status: "success"
-      });
-    }).catch((error) => {
-      toastMsg({
-        title: `${error.message}`,
-        status: "error"
+    setLoading(true);
+    setTimeout(() => {
+      axios.post(`https://agile-pear-cape-buffalo.cyclic.app/api/user`, obj).then((res) => {
+        console.log(res);
+        setLoading(false);
+        toastMsg({
+          title: "Data updated successfully",
+          status: "success"
+        });
+      }).catch((error) => {
+        setLoading(false);
+        toastMsg({
+          title: `${error.response.data.msg}`,
+          status: "error"
+        })
+        console.log(error)
       })
-      console.log(error)
-    })
+    }, 2000)
 
   }
 
@@ -78,7 +83,7 @@ const AddDetails = () => {
     <div>
       <div className='inputContainer'>
         <Box
-          w={{base:"100%", md:"48%"}}
+          w={{ base: "100%", md: "48%" }}
           rounded={'lg'}
           bg={useColorModeValue('white', 'gray.700')}
           p={8}
@@ -107,7 +112,7 @@ const AddDetails = () => {
           </Stack>
         </Box>
         <Box
-          w={{base:"100%", md:"48%"}}
+          w={{ base: "100%", md: "48%" }}
           rounded={'lg'}
           bg={useColorModeValue('white', 'gray.700')}
           p={8}
@@ -137,7 +142,15 @@ const AddDetails = () => {
 
       </div>
       <div className='btn'>
-        <Button onClick={handleUserFormWithCloudinary}>Submit</Button>
+        {loading ? <Button
+          isLoading
+          loadingText='Submitting'
+          colorScheme='blue'
+          variant='outline'
+        >
+          Submit
+        </Button> : <Button onClick={handleUserFormWithCloudinary}>Submit</Button>}
+
       </div>
     </div>
   )

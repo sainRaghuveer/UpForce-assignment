@@ -58,7 +58,7 @@ const Home = () => {
   
   useEffect(() => {
     getData();
-  }, [query, page]);
+  }, [page]);
   
 
   const handleQuery = () => {
