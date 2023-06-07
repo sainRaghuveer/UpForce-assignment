@@ -68,7 +68,7 @@ export default function UserUpdateModal({ id, getData, data }) {
             profile: url,
         };
 
-        axios.patch(`https://agile-pear-cape-buffalo.cyclic.app/api/user/${id}`, obj).then((res) => {
+        axios.patch(`https://upforce-backend.onrender.com/api/user/${id}`, obj).then((res) => {
             console.log(res);
             toastMsg({
                 title: `User data Updated successfully`,

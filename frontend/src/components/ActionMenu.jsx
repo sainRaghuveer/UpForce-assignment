@@ -23,7 +23,7 @@ const ActionMenu = ({ id, getData, data }) => {
     const toastMsg = UseToast();
 
     const handleDelete = () => {
-        axios.delete(`https://agile-pear-cape-buffalo.cyclic.app/api/user/${id}`)
+        axios.delete(`https://upforce-backend.onrender.com/api/user/${id}`)
             .then((res) => {
                 toastMsg({
                     title: `user deleted successfully`,

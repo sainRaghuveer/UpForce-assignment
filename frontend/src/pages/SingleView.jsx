@@ -11,7 +11,7 @@ const SingleView = () => {
   const getSingleData = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`https://agile-pear-cape-buffalo.cyclic.app/api/user/${id}`);
+      const response = await fetch(`https://upforce-backend.onrender.com/api/user/${id}`);
       const res = await response.json();
       if (response.ok) {
         // console.log(res)

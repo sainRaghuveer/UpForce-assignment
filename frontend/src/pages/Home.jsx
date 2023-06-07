@@ -26,6 +26,7 @@ const Home = () => {
   const [data, setData] = useState([]);
   // console.log('data', data)
   const [loading, setLoading] = useState(false);
+  const [csvLoading, setCsvLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
   const [totalPage, setTotalPage] = useState()
@@ -36,7 +37,7 @@ const Home = () => {
   const getData = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`https://agile-pear-cape-buffalo.cyclic.app/api/user/page/${page}?q=${query}`);
+      const response = await fetch(`https://upforce-backend.onrender.com/api/user/page/${page}?q=${query}`);
       const res = await response.json();
       if (response.ok) {
         // console.log(res)
@@ -44,7 +45,7 @@ const Home = () => {
         setTotalPage(res.Pages);
         setLoading(false);
       } else {
-        console.log('Failed to fetch users');
+        console.log('Failed to fetch users data');
       }
     } catch (error) {
       setLoading(false);
@@ -68,7 +69,8 @@ const Home = () => {
   const downloadCSV = useCallback(async () => {
     console.log('CSV downloaded')
     // Making a request to the backend to initiate the download
-    fetch(`https://agile-pear-cape-buffalo.cyclic.app/api/export-csv`)
+    setCsvLoading(true);
+    fetch(`https://upforce-backend.onrender.com/api/export-csv`)
       .then((response) => response.blob())
       .then((blob) => {
         // Creating a URL for the blob object
@@ -87,16 +89,14 @@ const Home = () => {
         document.body.removeChild(link);
         // Revoking the URL to release memory resources
         window.URL.revokeObjectURL(url);
+        setCsvLoading(false);
       })
       .catch((error) => {
+        setCsvLoading(false);
         console.error("Error downloading the file", error);
         // Handling the error
       });
   }, [])
-
-  // useEffect(() => {
-  //   getData();
-  // }, [page]);
 
   return (
     <div className='parentContainer'>
@@ -107,7 +107,14 @@ const Home = () => {
         </div>
         <div>
           <Button onClick={() => navigate("/register")}><AiOutlinePlus /> Add User</Button>
-          <Button onClick={downloadCSV}>Export to Csv</Button>
+          {csvLoading?<Button
+          isLoading
+          loadingText='Wait...'
+          colorScheme='blue'
+          variant='outline'
+        >
+          Submit
+        </Button>:<Button onClick={downloadCSV}>{"Export to Csv"}</Button>}
         </div>
       </div>
       <div className='tableContainer'>

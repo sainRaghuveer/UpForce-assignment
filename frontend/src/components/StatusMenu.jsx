@@ -20,7 +20,7 @@ const StatusMenu = ({ status, id, getData }) => {
         if (newStatus !== "") {
             const obj = { status: newStatus };
             setLoading(true);
-            axios.patch(`https://agile-pear-cape-buffalo.cyclic.app/api/user/${id}`, obj)
+            axios.patch(`https://upforce-backend.onrender.com/api/user/${id}`, obj)
                 .then((res) => {
                     // console.log(res);
                     setLoading(false);

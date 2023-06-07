@@ -59,7 +59,7 @@ const AddDetails = () => {
 
     setLoading(true);
     setTimeout(() => {
-      axios.post(`https://agile-pear-cape-buffalo.cyclic.app/api/user`, obj).then((res) => {
+      axios.post(`https://upforce-backend.onrender.com/api/user`, obj).then((res) => {
         console.log(res);
         setLoading(false);
         toastMsg({
