@@ -14,7 +14,7 @@ const SingleView = () => {
       const response = await fetch(`https://agile-pear-cape-buffalo.cyclic.app/api/user/${id}`);
       const res = await response.json();
       if (response.ok) {
-        console.log(res)
+        // console.log(res)
         setData(res.data);
         setLoading(false);
       } else {

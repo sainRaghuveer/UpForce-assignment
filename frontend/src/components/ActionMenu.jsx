@@ -29,7 +29,7 @@ const ActionMenu = ({ id, getData, data }) => {
                     title: `user deleted successfully`,
                     status: "success"
                 });
-                console.log(res);
+                // console.log(res);
                 getData();
             })
             .catch((error) => {
@@ -37,7 +37,7 @@ const ActionMenu = ({ id, getData, data }) => {
                     title: `${error.message}`,
                     status: "error"
                 });
-                console.log(error);
+                // console.log(error);
             });
     };
 

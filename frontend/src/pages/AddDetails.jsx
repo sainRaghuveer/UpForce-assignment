@@ -39,7 +39,7 @@ const AddDetails = () => {
     data.append("cloud_name", "dr9ygmyh3");
     axios.post("https://api.cloudinary.com/v1_1/dr9ygmyh3/image/upload", data)
       .then(res => {
-        console.log(res);
+        // console.log(res);
         setUrl(res.data.secure_url)
       })
       .catch(err => console.log(err));

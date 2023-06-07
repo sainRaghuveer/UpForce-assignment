@@ -13,7 +13,7 @@ import {
   } from '@chakra-ui/react';
   
   export default function SingleUSerCard({data}) {
-    console.log(data)
+    // console.log(data)
     return (
         <>
       <Box py={6}>

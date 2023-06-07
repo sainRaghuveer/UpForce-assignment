@@ -22,7 +22,7 @@ const StatusMenu = ({ status, id, getData }) => {
             setLoading(true);
             axios.patch(`https://agile-pear-cape-buffalo.cyclic.app/api/user/${id}`, obj)
                 .then((res) => {
-                    console.log(res);
+                    // console.log(res);
                     setLoading(false);
                     toastMsg({
                         title: `Status updated successfully`,

@@ -41,7 +41,7 @@ export default function UserUpdateModal({ id, getData, data }) {
     const [overlay, setOverlay] = React.useState();
     const toastMsg = UseToast();
 
-    console.log("UpdateData", data)
+    // console.log("UpdateData", data)
 
     const handleUserUpdateWithCloudinary = async () => {
         const img = imageRef.current.files[0];
@@ -52,7 +52,7 @@ export default function UserUpdateModal({ id, getData, data }) {
         data.append("cloud_name", "dr9ygmyh3");
         axios.post("https://api.cloudinary.com/v1_1/dr9ygmyh3/image/upload", data)
             .then(res => {
-                console.log(res);
+                // console.log(res);
                 setUrl(res.data.secure_url)
             })
             .catch(err => console.log(err));

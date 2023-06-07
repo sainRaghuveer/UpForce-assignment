@@ -6,7 +6,7 @@ import StatusMenu from './StatusMenu';
 import ActionMenu from './ActionMenu';
 
 const UserCard = ({ data, getData, loading }) => {
-  console.log(data);
+  // console.log(data);
   return (
     <>
       <Tr style={{ border: "2px solid teal" }}>

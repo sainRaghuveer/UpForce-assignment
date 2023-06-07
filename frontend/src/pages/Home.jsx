@@ -39,7 +39,7 @@ const Home = () => {
       const response = await fetch(`https://agile-pear-cape-buffalo.cyclic.app/api/user/page/${page}?q=${query}`);
       const res = await response.json();
       if (response.ok) {
-        console.log(res)
+        // console.log(res)
         setData(res.data);
         setTotalPage(res.Pages);
         setLoading(false);
