@@ -128,7 +128,7 @@ const AddDetails = () => {
             </FormControl>
             <FormControl id="status">
               <FormLabel>Select your Status</FormLabel>
-              <Select placeholder='Status...' value={gender} onChange={(e) => setStatus(e.target.value)}>
+              <Select placeholder='Status...' value={status} onChange={(e) => setStatus(e.target.value)}>
                 <option value="active">Active</option>
                 <option value="inactive">InActive</option>
               </Select>
