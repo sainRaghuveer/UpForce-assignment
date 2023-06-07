@@ -24,6 +24,7 @@ import {
 } from '@chakra-ui/react';
 import { EditIcon } from "@chakra-ui/icons";
 import axios from 'axios';
+import UseToast from '../customHook/UseToast';
 
 
 export default function UserUpdateModal({ id, getData, data }) {
@@ -38,6 +39,7 @@ export default function UserUpdateModal({ id, getData, data }) {
     const imageRef = useRef();
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [overlay, setOverlay] = React.useState();
+    const toastMsg = UseToast();
 
     console.log("UpdateData", data)
 
@@ -66,10 +68,18 @@ export default function UserUpdateModal({ id, getData, data }) {
             profile: url,
         };
 
-        axios.patch(`http://localhost:8080/api/user/${id}`, obj).then((res) => {
+        axios.patch(`https://agile-pear-cape-buffalo.cyclic.app/api/user/${id}`, obj).then((res) => {
             console.log(res);
+            toastMsg({
+                title: `User data Updated successfully`,
+                status: "success"
+            });
             getData();
         }).catch((error) => {
+            toastMsg({
+                title: `${error.message}`,
+                status: "error"
+            });
             console.log(error)
         })
     }

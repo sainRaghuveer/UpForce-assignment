@@ -27,3 +27,19 @@
     border:1px solid gray;
     margin-top: 20px;
 }
+
+
+@media screen and (min-width:601px) and (max-width: 900px) {
+   
+  }
+
+
+@media (max-width: 600px) {
+    .inputContainer{
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr)
+    };
+
+    
+ }

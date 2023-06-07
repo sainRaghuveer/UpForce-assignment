@@ -16,17 +16,27 @@ import { BsFillEyeFill } from "react-icons/bs"
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import UserUpdateModal from './UserUpdateModal';
+import UseToast from '../customHook/UseToast';
 
 const ActionMenu = ({ id, getData, data }) => {
     const navigate=useNavigate();
+    const toastMsg = UseToast();
 
     const handleDelete = () => {
-        axios.delete(`http://localhost:8080/api/user/${id}`)
+        axios.delete(`https://agile-pear-cape-buffalo.cyclic.app/api/user/${id}`)
             .then((res) => {
+                toastMsg({
+                    title: `user deleted successfully`,
+                    status: "success"
+                });
                 console.log(res);
                 getData();
             })
             .catch((error) => {
+                toastMsg({
+                    title: `${error.message}`,
+                    status: "error"
+                });
                 console.log(error);
             });
     };

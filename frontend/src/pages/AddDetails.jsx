@@ -16,6 +16,7 @@ import {
 import React, { useRef, useState } from 'react';
 import axios from "axios";
 import "../styles/AddDetails.css"
+import UseToast from '../customHook/UseToast';
 
 const AddDetails = () => {
   const [url, setUrl] = useState("");
@@ -27,6 +28,7 @@ const AddDetails = () => {
   const [status, setStatus] = useState("");
   const [location, setLocation] = useState("");
   const imageRef = useRef();
+  const toastMsg = UseToast();
 
   const handleUserFormWithCloudinary = async () => {
     const img = imageRef.current.files[0];
@@ -55,9 +57,17 @@ const AddDetails = () => {
     };
 
 
-    axios.post(`http://localhost:8080/api/user`, obj).then((res) => {
+    axios.post(`https://agile-pear-cape-buffalo.cyclic.app/api/user`, obj).then((res) => {
       console.log(res);
+      toastMsg({
+        title: "Data updated successfully",
+        status: "success"
+      });
     }).catch((error) => {
+      toastMsg({
+        title: `${error.message}`,
+        status: "error"
+      })
       console.log(error)
     })
 
@@ -68,7 +78,7 @@ const AddDetails = () => {
     <div>
       <div className='inputContainer'>
         <Box
-          w={"48%"}
+          w={{base:"100%", md:"48%"}}
           rounded={'lg'}
           bg={useColorModeValue('white', 'gray.700')}
           p={8}
@@ -97,7 +107,7 @@ const AddDetails = () => {
           </Stack>
         </Box>
         <Box
-          w={"48%"}
+          w={{base:"100%", md:"48%"}}
           rounded={'lg'}
           bg={useColorModeValue('white', 'gray.700')}
           p={8}
