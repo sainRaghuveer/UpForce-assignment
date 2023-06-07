@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import {
   Button,
   Input,
@@ -17,6 +17,7 @@ import "../styles/Home.css";
 import { AiOutlinePlus} from "react-icons/ai"
 import UserCard from '../components/UserCard';
 import {ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons"
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -24,6 +25,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
+  const navigate = useNavigate();
 
 
   const getData = async () => {
@@ -44,6 +46,35 @@ const Home = () => {
     getData();
   }
 
+  const downloadCSV = useCallback(async () => {
+    console.log('CSV downloaded')
+    // Making a request to the backend to initiate the download
+    fetch(`http://localhost:8080/api/export-csv`)
+         .then((response) => response.blob())
+         .then((blob) => {
+              // Creating a URL for the blob object
+              const url = window.URL.createObjectURL(blob);
+              // Creating a temporary link element
+              const link = document.createElement("a");
+              // Setting the link's href to the generated URL
+              link.href = url;
+              // Setting the filename for the downloaded file
+              link.download = "user.csv";
+              // Appended the link to the document body
+              document.body.appendChild(link);
+              // Simulating a click on the link to trigger the download
+              link.click();
+              // Clean up by removing the link from the document body
+              document.body.removeChild(link);
+              // Revoking the URL to release memory resources
+              window.URL.revokeObjectURL(url);
+         })
+         .catch((error) => {
+              console.error("Error downloading the file", error);
+              // Handling the error
+         });
+}, [])
+
   useEffect(() => {
     getData();
   }, [page]);
@@ -56,8 +87,8 @@ const Home = () => {
           <Button onClick={handleQuery}>Search</Button>
         </div>
         <div>
-          <Button><AiOutlinePlus /> Add User</Button>
-          <Button>Export to Csv</Button>
+          <Button onClick={()=>navigate("/register")}><AiOutlinePlus /> Add User</Button>
+          <Button onClick={downloadCSV}>Export to Csv</Button>
         </div>
       </div>
       <div className='tableContainer'>
