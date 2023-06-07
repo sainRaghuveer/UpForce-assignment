@@ -29,7 +29,6 @@ const AddDetails = () => {
   const imageRef = useRef();
 
   const handleUserFormWithCloudinary = async () => {
-
     const img = imageRef.current.files[0];
     console.log("img", img)
     const data = new FormData();

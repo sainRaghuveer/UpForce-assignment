@@ -29,6 +29,7 @@ const Home = () => {
 
 
   const getData = async () => {
+    console.log("afterUpdtae", "Raghuveer")
     try {
       const response = await fetch(`http://localhost:8080/api/user/page/${page}?q=${query}`);
       const res = await response.json();
@@ -107,7 +108,7 @@ const Home = () => {
               </Tr>
             </Thead>
             <Tbody>
-              {<UserCard data={data}/>}
+              {<UserCard data={data} getData={getData}/>}
             </Tbody>
           </Table>
         </TableContainer>

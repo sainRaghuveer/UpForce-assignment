@@ -5,7 +5,7 @@ import {BsThreeDotsVertical} from "react-icons/bs";
 import StatusMenu from './StatusMenu';
 import ActionMenu from './ActionMenu';
 
-const UserCard = ({data}) => {
+const UserCard = ({data, getData}) => {
   console.log(data);
   return (
     <>
@@ -15,7 +15,7 @@ const UserCard = ({data}) => {
           <Td>{el.firstName}{" "}{el.lastName}</Td>
           <Td>{el.email}</Td>
           <Td>{el.gender=="male" ? "M" : "F"}</Td>
-          <Td>{<StatusMenu status={el.status}/>}</Td>
+          <Td>{<StatusMenu status={el.status} id={el._id} getData={getData}/>}</Td>
           <Td><Image src={el.profile} width={"50px"} height={"50px"} borderRadius={"25px"}></Image></Td>
           <Td>{<ActionMenu/>}</Td>
         </Tr>

@@ -25,7 +25,7 @@ export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Box className='parent'>
+      <Box className='parent' bg={colorMode}>
         <Box className='flex'>
           <Box>UpForce</Box>
 
