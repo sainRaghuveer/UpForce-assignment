@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import SingleUSerCard from '../components/SingleUserCard';
-import { Skeleton } from '@chakra-ui/react';
+import { Skeleton, Spinner } from '@chakra-ui/react';
 
 const SingleView = () => {
   const { id } = useParams();
@@ -14,7 +14,6 @@ const SingleView = () => {
       const response = await fetch(`https://upforce-backend.onrender.com/api/user/${id}`);
       const res = await response.json();
       if (response.ok) {
-        // console.log(res)
         setData(res.data);
         setLoading(false);
       } else {
@@ -28,13 +27,16 @@ const SingleView = () => {
 
   useEffect(() => {
     getSingleData();
-    console.log("data", data);
   }, [id]);
 
-  console.log(id)
-  return loading?<Skeleton/>:(
+  return loading ? <Spinner
+    thickness='4px'
+    speed='0.65s'
+    emptyColor='gray.200'
+    color='blue.500'
+    size='xl' /> : (
     <div>
-      {<SingleUSerCard data={data}/>}
+      {<SingleUSerCard data={data} />}
     </div>
   )
 }

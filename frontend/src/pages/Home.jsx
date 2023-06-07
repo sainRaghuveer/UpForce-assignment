@@ -24,7 +24,6 @@ import { Spinner } from '@chakra-ui/react'
 
 const Home = () => {
   const [data, setData] = useState([]);
-  // console.log('data', data)
   const [loading, setLoading] = useState(false);
   const [csvLoading, setCsvLoading] = useState(false);
   const [page, setPage] = useState(1);
@@ -40,7 +39,6 @@ const Home = () => {
       const response = await fetch(`https://upforce-backend.onrender.com/api/user/page/${page}?q=${query}`);
       const res = await response.json();
       if (response.ok) {
-        // console.log(res)
         setData(res.data);
         setTotalPage(res.Pages);
         setLoading(false);

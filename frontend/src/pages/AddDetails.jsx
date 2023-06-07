@@ -33,18 +33,15 @@ const AddDetails = () => {
 
   const handleUserFormWithCloudinary = async () => {
     const img = imageRef.current.files[0];
-    console.log("img", img)
     const data = new FormData();
     data.append("file", img)
     data.append("upload_preset", "upforce")
     data.append("cloud_name", "dr9ygmyh3");
     axios.post("https://api.cloudinary.com/v1_1/dr9ygmyh3/image/upload", data)
       .then(res => {
-        // console.log(res);
         setUrl(res.data.secure_url)
       })
       .catch(err => console.log(err));
-
 
     let obj = {
       firstName: firstName,
@@ -66,16 +63,22 @@ const AddDetails = () => {
           title: "Data updated successfully",
           status: "success"
         });
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setMobile("");
+        setGender("");
+        setStatus("");
+        setLocation("");
+        setUrl("");
       }).catch((error) => {
         setLoading(false);
         toastMsg({
           title: `${error.response.data.msg}`,
           status: "error"
         })
-        console.log(error)
       })
-    }, 2000)
-
+    }, 2000);
   }
 
 
