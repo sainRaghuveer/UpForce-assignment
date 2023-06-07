@@ -121,7 +121,7 @@ Note:
 
 ## Backend Deployed Link 
 
-<a href="https://upforce-backend.onrender.com" target="_blank"><strong><h2>Render</h2></strong></a>
+<a href="https://upforce-backend.onrender.com"><strong><h2>Render</h2></strong></a>
 
 <br>
 
@@ -180,7 +180,7 @@ Note:
 
 # Presentation Video Link
 
-<a href="" target="_blank">UpForce Backend Presentation</a>
+<a href="">UpForce Backend Presentation</a>
 
 </details>
 
@@ -328,12 +328,12 @@ Note : `You can use any one of them.`
 
 ## Frontend Deployed Link
 
-<a href="https://upforce-assignment-by-raghuveersain.vercel.app/" target="_blank"><strong><h2>Vercel</h2></strong></a>
+<a href="https://upforce-assignment-by-raghuveersain.vercel.app/"><strong><h2>Vercel</h2></strong></a>
 
 <br>
 
 # Presentation Video Link
 
-<a href="" target="_blank">UpForce Frontend Presentation</a>
+<a href="">UpForce Frontend Presentation</a>
 
 </details>

@@ -113,7 +113,7 @@ Note:
 
 ## Backend Deployed Link 
 
-<a href="https://upforce-backend.onrender.com" target="_blank"><strong><h2>Render</h2></strong></a>
+<a href="https://upforce-backend.onrender.com"><strong><h2>Render</h2></strong></a>
 
 <br>
 
@@ -172,4 +172,4 @@ Note:
 
 # Presentation Video Link
 
-<a href="" target="_blank">UpForce Backend Presentation</a>
+<a href="">UpForce Backend Presentation</a>
