@@ -15,8 +15,9 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { BsFillEyeFill } from "react-icons/bs"
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import UserUpdateModal from './UserUpdateModal';
 
-const ActionMenu = ({ id, getData }) => {
+const ActionMenu = ({ id, getData, data }) => {
     const navigate=useNavigate();
 
     const handleDelete = () => {
@@ -41,7 +42,7 @@ const ActionMenu = ({ id, getData }) => {
                 </MenuButton>
                 <MenuList>
                     <MenuItem onClick={handleView}>{<BsFillEyeFill />} {" "}View</MenuItem>
-                    <MenuItem >{<EditIcon />} {" "}Edit</MenuItem>
+                    <MenuItem >{<UserUpdateModal id={id} getData={getData} data={data}/>}</MenuItem>
                     <MenuItem onClick={handleDelete}>{<DeleteIcon />} {" "}Delete</MenuItem>
                 </MenuList>
             </Menu>
