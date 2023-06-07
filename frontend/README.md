@@ -146,3 +146,46 @@ Note : `You can use any one of them.`
 <br>
 
 <a href="">UpForce Frontend Presentation</a>
+
+
+# ScreenShots
+
+<br>
+    
+## Home Page
+ 
+<img src="https://github.com/sainRaghuveer/UpForce-assignment/assets/112657812/0a2d3ecc-f877-4c61-8bc1-62a682880bd2" alt="image"/>
+
+<br>
+    
+##  Status Menu  
+    
+<img src="https://github.com/sainRaghuveer/UpForce-assignment/assets/112657812/a684bee9-0952-42ce-8fd1-1381aad5b8ac" alt="image"/>
+
+<br>
+    
+## Action Menu
+    
+<img src="https://github.com/sainRaghuveer/UpForce-assignment/assets/112657812/a2105b09-195e-4e32-876c-8f326327234e" alt="image"/>
+
+<br>
+    
+## Single user View   
+
+<img src="https://github.com/sainRaghuveer/UpForce-assignment/assets/112657812/60f05651-0f7f-4eaa-ada7-ab6c4cc1d54e" alt="image"/>
+
+<br>
+    
+## Download Csv of User data   
+    
+<img src="https://github.com/sainRaghuveer/UpForce-assignment/assets/112657812/315f65e3-6967-44c0-b359-7cff5969388f" alt="image"/>
+    
+## User update   
+    
+<img src="https://github.com/sainRaghuveer/UpForce-assignment/assets/112657812/a9bead4d-aabd-4ddb-99c8-a37a8926facb" alt="image"/>
+
+<br>
+    
+## Add new user
+    
+<img src="https://github.com/sainRaghuveer/UpForce-assignment/assets/112657812/acb93e13-fc82-4dfb-9ad7-5137eb94a4fa" alt="image"/>
