@@ -18,16 +18,23 @@ import {
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import "../styles/Navbar.css"
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const navigate = useNavigate();
+
+  const handleBack=()=>{
+    navigate("/");
+  }
   return (
     <>
       <Box className='parent' bg={colorMode}>
         <Box className='flex'>
           <Box>UpForce</Box>
+          <Button onClick={handleBack}>Go Back...</Button>
 
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
@@ -63,7 +70,6 @@ export default function Navbar() {
                   <MenuDivider />
                   <MenuItem>Your Servers</MenuItem>
                   <MenuItem>Account Settings</MenuItem>
-                  <MenuItem>Logout</MenuItem>
                 </MenuList>
               </Menu>
             </Stack>
