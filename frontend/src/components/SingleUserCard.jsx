@@ -1,11 +1,7 @@
 import {
-    Badge,
-    Button,
-    Center,
     Flex,
     Heading,
     Image,
-    Link,
     Stack,
     Text,
     useColorModeValue,
