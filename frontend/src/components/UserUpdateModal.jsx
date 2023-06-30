@@ -9,17 +9,10 @@ import {
     ModalCloseButton,
     useDisclosure,
     Button,
-    Text,
     Box,
     Input,
-    Flex,
     FormControl,
     FormLabel,
-    Checkbox,
-    Stack,
-    Link,
-    Heading,
-    useColorModeValue,
     Select,
 } from '@chakra-ui/react';
 import { EditIcon } from "@chakra-ui/icons";
