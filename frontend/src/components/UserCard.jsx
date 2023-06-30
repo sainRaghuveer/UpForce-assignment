@@ -1,7 +1,5 @@
 import React from 'react';
 import { Tr, Td, Image, Skeleton } from "@chakra-ui/react";
-import { DeleteIcon } from "@chakra-ui/icons";
-import { BsThreeDotsVertical } from "react-icons/bs";
 import StatusMenu from './StatusMenu';
 import ActionMenu from './ActionMenu';
 
