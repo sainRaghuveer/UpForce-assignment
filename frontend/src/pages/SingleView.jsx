@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import SingleUSerCard from '../components/SingleUserCard';
-import { Skeleton, Spinner } from '@chakra-ui/react';
+import { Spinner } from '@chakra-ui/react';
 
 const SingleView = () => {
   const { id } = useParams();
